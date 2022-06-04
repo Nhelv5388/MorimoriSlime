@@ -20,10 +20,13 @@ public class BulletMove : MonoBehaviour
         transform.position += new Vector3(m_Speed,0,0) * Time.deltaTime;
     }
 
-
-    //弾が壁に当たったときの関数
-    public void DestroyWall()
+    /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other)
     {
-
+        this.gameObject.SetActive(false);
     }
 }
