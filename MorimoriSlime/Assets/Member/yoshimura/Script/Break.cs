@@ -6,11 +6,10 @@ public class Break : MonoBehaviour
 {
 	void OnCollisionEnter2D(Collision2D collision2D)
 	{
-		// 衝突した相手にPlayerタグが付いているとき
+		// 衝突した相手にBulletタグが付いているとき
 		if (collision2D.gameObject.tag == "Bullet")
 		{
-			// 0.2秒後に消える
-			//Destroy(gameObject, 0.2f);
+			//オブジェクトが消える
 			this.gameObject.SetActive(false);
 			
 		}
