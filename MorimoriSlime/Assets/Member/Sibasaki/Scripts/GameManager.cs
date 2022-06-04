@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement; //Sceneを使うときに用いる
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     [SerializeField] GameObject gameClearText;
     [SerializeField] GameObject gameOverText;
     public bool CameraStop = false;//カメラの停止を管理
@@ -14,7 +15,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
 
     void RestartScene()//初期地点にPlayerが戻る関数
     {
@@ -35,15 +35,19 @@ public class GameManager : MonoBehaviour
     public void GameOver()//ゲームオーバーになったときの関数
     {
         gameOverText.SetActive(true);
+
+        CameraStop = true;
         //Invoke("TitleScene", 1.5f);
-        Invoke("RestartScene", 1.5f);//１．５秒後にリスタート関数を呼ぶ
+        //Invoke("RestartScene", 1.5f);//１．５秒後にリスタート関数を呼ぶ
         //RestartScene();
     }
 
     public void GameClear()//ゲームクリアになったときの関数
     {
         gameClearText.SetActive(true);
-        Invoke("RestartScene", 1.5f);//１．５秒後にリスタート関数を呼ぶ
+
+        CameraStop = true;
+        //Invoke("RestartScene", 1.5f);//１．５秒後にリスタート関数を呼ぶ
         //RestartScene();
     }
 

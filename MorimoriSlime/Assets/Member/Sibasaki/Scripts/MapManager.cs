@@ -15,6 +15,7 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        camera = GameManager.instance.CameraStop;
         //ゲームオーバーになるまでマップを動かし続ける
         if(camera == false)
         {
